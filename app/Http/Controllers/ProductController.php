@@ -42,4 +42,9 @@ class ProductController extends Controller
         $product = DB::table('products')->where('id', $id)->get();
         return $product;
     }
+
+    public function destroy($id)
+    {
+        $product = DB::table('products')->where('id', $id)->delete();
+    }
 }
