@@ -19,7 +19,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         // $products = Product::latest();
-        $products = DB::select('select * from products');
+        $products = DB::table('products')->get();
         return $products;
     }
 
