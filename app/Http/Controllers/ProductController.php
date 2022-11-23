@@ -46,5 +46,17 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = DB::table('products')->where('id', $id)->delete();
+        return $product;
+    }
+
+    public function update(Request $request)
+    {
+        $product = DB::table('products')->where('id', $request->get('id'))->update([
+            'name' => $request->get('name'),
+            'category' => $request->get('category'),
+            'description' => $request->get('description'),
+            'product_image' => $request->get('product_image')
+        ]);
+        return $product;
     }
 }
